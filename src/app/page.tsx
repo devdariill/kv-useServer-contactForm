@@ -1,5 +1,9 @@
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+
 export default function Home () {
   return (
-    <main>Holis</main>
+    <main className={`${inter.className}`}>Holis</main>
   )
 }
