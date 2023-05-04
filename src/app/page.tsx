@@ -1,5 +1,6 @@
 import { Form } from '@/components/Form'
-import { Form as FomrPostgres } from '@/components/FormPostgres'
+import { Form as FormPostgres } from '@/components/FormPostgres'
+import { KVViewContacts } from '@/components/KVViewContacts'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -11,10 +12,11 @@ export default function Home () {
       <section className=''>
         <h3 className='text-center mb-3'>Redis</h3>
         <Form />
+        <KVViewContacts />
       </section>
       <section className=''>
         <h3 className='text-center my-3'>Postgres</h3>
-        <FomrPostgres />
+        <FormPostgres />
       </section>
     </main>
   )
