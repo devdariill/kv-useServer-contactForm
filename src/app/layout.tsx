@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/Toaster'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -15,6 +16,7 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='en'>
+      <Toaster />
       <body className={inter.className}>{children}</body>
     </html>
   )
