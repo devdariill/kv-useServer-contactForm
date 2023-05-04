@@ -10,7 +10,7 @@ export const Form = () => {
     const formData = new FormData(form)
     const { email, name, message } = Object.fromEntries(formData.entries())
     console.log({ email, name, message })
-    fetch('/api/kv-send-message', {
+    fetch('/api/pg-send-message', {
       method: 'POST',
       body: JSON.stringify({ email, name, message }),
       headers: {
