@@ -1,6 +1,8 @@
 'use client'
 import { Button } from '@/components/Button'
 import { Input } from '@/components/input'
+import { toast } from 'sonner'
+
 export const Form = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -8,6 +10,18 @@ export const Form = () => {
     const formData = new FormData(form)
     const { email, name, message } = Object.fromEntries(formData.entries())
     console.log({ email, name, message })
+    fetch('/api/kv-send-message', {
+      method: 'POST',
+      body: JSON.stringify({ email, name, message }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(() => {
+      form.reset()
+      toast.success('Mensaje enviado correctamente')
+    }).catch(() => {
+      toast.error('Error al enviar el mensaje')
+    })
   }
   return (
     <form onSubmit={handleSubmit} className='space-y-8 border border-white/10 p-8 max-w-xl mx-auto min-w-[400px]'>
