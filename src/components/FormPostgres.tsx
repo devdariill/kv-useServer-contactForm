@@ -19,6 +19,8 @@ export const Form = () => {
     }).then(() => {
       form.reset()
       toast.success('Mensaje enviado correctamente')
+      const $view = document.querySelector('#count-views')
+      if ($view != null) $view.innerHTML = `${Number($view.textContent) + 1}`
     }).catch(() => {
       toast.error('Error al enviar el mensaje')
     })
