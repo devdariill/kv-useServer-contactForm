@@ -1,4 +1,5 @@
 import { ActionFormServer } from '@/components/ActionFormServer'
+import { Confetti } from '@/components/Confetti'
 import { Form } from '@/components/Form'
 import { Form as FormPostgres } from '@/components/FormPostgres'
 import { KVViewContacts } from '@/components/KVViewContacts'
@@ -14,6 +15,7 @@ export default function Home () {
         <h3 className='text-center mb-3'>Server action kv</h3>
         <ActionFormServer />
         <KVViewContacts />
+        <Confetti />
       </section>
       <section className=''>
         <h3 className='text-center mb-3'>Redis</h3>

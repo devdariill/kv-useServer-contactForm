@@ -1,6 +1,8 @@
 import { Button } from '@/components/Button'
 import { Input } from '@/components/input'
 import kv from '@vercel/kv'
+import { redirect } from 'next/navigation'
+
 export const ActionFormServer = () => {
   const sendMessage = async (formData: FormData) => {
     'use server'
@@ -10,6 +12,7 @@ export const ActionFormServer = () => {
     const timestamp = Date.now()
     await kv.set(`contact-${uuid}`, { email, name, message, timestamp })
     console.log('done')
+    redirect('/?success=true')
   }
   return (
     <form action={sendMessage} className='space-y-8 border border-white/10 p-8 max-w-xl mx-auto min-w-[400px]'>
